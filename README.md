@@ -1,0 +1,1 @@
+# Case 6 pre-profile olympiad

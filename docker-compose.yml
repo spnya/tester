@@ -1,0 +1,47 @@
+version: '3.7'
+services:
+
+  mongo:
+    image: mongo:latest
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "200k"
+        max-file: "3"
+    volumes:
+      - ./db:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS}
+
+  mongo-express:
+    image: mongo-express
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    logging:
+        driver: none
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_USER}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_PASS}
+
+  backend:
+    build:
+      context: ./web/server
+    restart: unless-stopped
+    volumes:
+      - ./web/server/src:/app/src
+    environment:
+      MONGO_USER: ${MONGO_USER}
+      MONGO_PASS: ${MONGO_PASS}
+      WEB_PORT: ${WEB_PORT}
+    depends_on:
+      - mongo
+    ports: 
+      - 80:80
+    logging:
+      driver: json-file
+      options:
+        max-size: "200k"
+        max-file: "3"
