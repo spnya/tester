@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/v/utilities/teacher.css">
+  <script src="/v/utilities/teacher.js"></script>
+  <link rel="stylesheet" href="/v/utilities/bootstrap.min.css">
+  <script src="/v/utilities/bootstrap.min.js"></script>
+
+</head>
+
+<style>
+ @media (min-width: 992px) {
+            .gedf-main {
+                padding-left: 4rem;
+                padding-right: 4rem;
+            }
+            .gedf-card {
+                margin-bottom: 2.77rem;
+            }
+        }
+
+        .dropdown-toggle::after {
+            content: none;
+            display: none;
+        }</style>
+<body>
+      
+    <div id="add_task_form" class="modal">
+  
+        <form class="modal-content123 animate" onsubmit="return false">
+      
+          <div class="kekss">
+    
+            <label for="uname"><b>Название задачи</b></label>
+            <input id = "add_task_name" type="text" placeholder="Название" name="username" required>
+            <label for="uname"><b>Условие задачи</b></label>
+            <textarea id="add_task_stor" name="story"
+            rows="5" cols="33" placeholder="Условие задачи"></textarea>
+  
+            <label for="uname"><b>Ответ</b></label>
+            <input id = "add_task_ans" type="text" placeholder="Ответ" name="username" required>
+            <div style="color:red">!Указывайте ответ без лишних пробелов!</div>
+            <br>
+            <select id = "select_module"></select>
+            <br>
+            <br>
+            <button onclick="add_task()" >Добавить задачу</button>
+
+            <div id = "fail_add_task" style="color:red"></div>
+            <div id = "success_add_task" style="color:green"></div>
+         
+          </div>
+          <div class="kekss" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('add_task_form').style.display='none'" class="cancelbtn">Закрыть</button>
+          </div>
+        </form>
+    </div>
+
+    <div id="add_module_form" class="modal">
+  
+        <form class="modal-content123 animate" onsubmit="return false">
+      
+          <div class="kekss">
+    
+            <label for="uname"><b>Название задачи</b></label>
+            <input id = "add_module_name" type="text" placeholder="Название" name="username" required>
+            <button onclick="add_module()" >Добавить модуль</button>
+
+            <div id = "fail_add_module" style="color:red"></div>
+            <div id = "success_add_module" style="color:green"></div>
+         
+          </div>
+          <div class="kekss" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('add_module_form').style.display='none'" class="cancelbtn">Закрыть</button>
+          </div>
+        </form>
+    </div>
+
+    <div id="change_module_form_save_form" class="modal">
+  
+        <form class="modal-content123 animate" onsubmit="return false">
+      
+          <div class="container">
+    
+            <label for="uname"><b>KEK</b></label>
+            <table class="container">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>+/-</th>
+                    </tr>
+                </thead>
+                <tbody id="tasks_modules_lel">
+        
+                   
+                </tbody>
+            </table>
+            <button onclick="save_module()" >Сохранить</button>
+            <div id = "fail_change_module_form1" style="color:red"></div>
+            <div id = "kek_change_module_form2" style="color:blue"></div>
+            <div id = "succes_change_module_form3" style="color:green"></div>
+         
+          </div>
+          <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('change_module_form_save_form').style.display='none'" class="cancelbtn">Закрыть</button>
+          </div>
+        </form>
+    </div>
+    
+    <div id="create_test_form" class="modal">
+  
+      <form class="modal-content123 animate" onsubmit="return false">
+    
+        <div class="container">
+          
+          <label for="uname"><b>Название теста</b></label>
+          <input id = "add_test_name" type="text" placeholder="Название" name="username" required>
+
+          <label for="uname"><b>Время начала теста</b></label>
+          <br>
+          <input id = "add_test_h" class = "date_input_time" type="text" placeholder="14" name="username" required>
+          <input id = "add_test_m" class = "date_input_time" type="text" placeholder="00" name="username" required>
+          <br>
+          <input id = "add_test_d" class = "date_input_small" type="text" placeholder="14" name="username" required>
+          <input id = "add_test_mou" class = "date_input_small" type="text" placeholder="05" name="username" required>
+          <input id = "add_test_y" class = "date_input_year" type="text" placeholder="2004" name="username" required>
+          <br>
+          <label for="uname"><b>Продолжительность (минуты)</b></label>
+          <input id = "add_test_duration" type="text" placeholder="Продолжительность" name="username" required>
+          
+
+          <table class="container">
+              <thead>
+                  <tr>
+                      <th>Модуль</th>
+                      <th>Сколько задач из модуля</th>
+                  </tr>
+              </thead>
+              <tbody id="modules_creating">
+              </tbody>
+          </table>
+          <button onclick="add_test()" >Создать</button>
+          <div id = "add_test_f" style="color:red"></div>
+          <div id = "add_test_s1" style="color:green"></div>
+
+          <br>
+          <button onclick="rand_clicker()">Мне повезет!</button>
+
+       
+        </div>
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" onclick="document.getElementById('create_test_form').style.display='none'" class="cancelbtn">Закрыть</button>
+        </div>
+      </form>
+  </div>
+
+
+  <div id="chouse_module_form" class="modal">
+  
+    <form class="modal-content123 animate" onsubmit="return false">
+        
+        <div class="kekss">
+        <label for="uname"><b>Тест</b></label>
+        <br>
+        <select id = "select_test_add"></select>
+        <br>
+    
+        <label for="uname"><b>Группа</b></label>
+        <br>
+    
+        <select id = "select_group_add"></select>
+        <br>
+        <br>
+        <button onclick="add_test_to_group()" >Добавить тест группе</button>
+        <div id = "add_test_to_group_f" style="color:red"></div>
+        <div id = "add_test_to_group_s" style="color:green"></div>
+      </div>
+      <div class="kekss" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('chouse_module_form').style.display='none'" class="cancelbtn">Закрыть</button>
+      </div>
+    </form>
+</div>
+
+
+
+    <div class="container-fluid gedf-wrapper">
+        <div class="row">
+            <div id = "" class="col-md-3 polss">
+                <div>Панель учителя</div>
+                <button class="side_menu" onclick="document.getElementById('add_module_form').style.display='block'; reset()" >Создать модуль</button>
+                <button class="side_menu" onclick="document.getElementById('add_task_form').style.display='block'; reset()" >Создать задачу</button>
+                <button class="side_menu" onclick="document.getElementById('create_test_form').style.display='block'; reset()" >Создать тест</button>
+                <button class="side_menu" onclick="document.getElementById('chouse_module_form').style.display='block'; reset()" >Добавить тест группе</button>
+                <div>Выбор групп:</div>
+                <div id = "groups_list">
+
+                </div>
+            </div>
+        <div id = "yes" class="col-md-5 gedf-main polss">
+        </div>
+            <div  id = "gg" class="col-md-4 polss">
+                <ul id = "ggg">
+                </ul>
+            </div>
+        </div>
+    </div>
+<script></script>
+</body>
+</html>

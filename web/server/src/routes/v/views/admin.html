@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div>
+    <div class="">
+        <div class="polss">Админ панель</div>    
+    </div>
+    <div class="button">
+        <button id = '' class="btns" onclick="document.getElementById('login_form').style.display='block'; reset()" style="width:auto;">Добавить пользователя</button>
+        <button id = '' class="btns" onclick="document.getElementById('add_group_form').style.display='block'; reset()" style="width:auto;">Создать группу</button>
+        <button id = '' class="btns" onclick="document.getElementById('add_user_to_group').style.display='block'; reset()" style="width:auto;">Редактировать группы</button>
+   
+    </div>
+</div>
+
+
+
+<div id="login_form" class="modal">
+  
+  <form class="modal-content animate" onsubmit="return false">
+
+    <div class="container">
+      <label for="uname"><b>Логин</b></label>
+      <input id = "add_user_username" type="text" placeholder="Логин" name="username" required>
+
+      <label for="psw"><b>Пароль</b></label>
+      <input id = "add_user_password" type="password" placeholder="Пароль" name="password" required>
+      
+
+      <label for="uname"><b>Имя</b></label>
+      <input id = "add_user_fname" type="text" placeholder="Имя" required>
+
+      <label for="uname"><b>Фамилия</b></label>
+      <input id = "add_user_sname" type="text" placeholder="Фамилия" name="username" required> 
+
+      <label for="uname"><b>Роль</b></label>
+      <br>
+      <select id = "add_user_role">
+        <option value="1">Администратор учебного процесса</option>
+        <option value="2">Администратор системы</option>
+        <option value="3">Преподаватель</option>
+        <option value="4">Студент</option>
+      </select>
+
+      <button onclick="reg_new()" >Добавить пользователя</button>
+      <div id = "fail_add_user" style="color:red"></div>
+      <div id = "success_add_user" style="color:green"></div>
+   
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('login_form').style.display='none'" class="cancelbtn">Закрыть</button>
+    </div>
+  </form>
+</div>
+
+
+
+<div id="add_group_form" class="modal">
+  
+    <form class="modal-content animate" onsubmit="return false">
+  
+      <div class="container">
+
+        <label for="uname"><b>Название группы</b></label>
+        <input id = "add_group_name" type="text" placeholder="Название" name="username" required>
+
+        <label for="uname"><b>Учитель</b></label>
+        <br>
+        <select id = "select_teacher">
+        </select>
+
+        <button onclick="add_group()" >Создать группу</button>
+        <div id = "fail_add_group" style="color:red"></div>
+        <div id = "success_add_group" style="color:green"></div>
+     
+      </div>
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('add_group_form').style.display='none'" class="cancelbtn">Закрыть</button>
+      </div>
+    </form>
+</div>
+
+<div id="add_user_to_group" class="modal">
+  
+    <form class="modal-content animate" onsubmit="return false">
+  
+      <div class="container">
+
+        <label for="uname"><b>Группа</b></label>
+        <br>
+        <select id = "select_group">
+        </select>
+
+        <button onclick="change_group()" >Выбрать группу</button>
+     
+      </div>
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('add_user_to_group').style.display='none'" class="cancelbtn">Закрыть</button>
+      </div>
+    </form>
+</div>
+
+<div id="change_group" class="modal">
+  
+    <form class="modal-content animate" onsubmit="return false">
+  
+      <div class="container">
+
+        <label for="uname"><b>KEK</b></label>
+        <table class="container">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>+/-</th>
+
+                </tr>
+            </thead>
+            <tbody id="users_in_group">
+    
+               
+            </tbody>
+        </table>
+        <button onclick="save_group()" >Сохранить</button>
+        <div id = "fail_change_group" style="color:red"></div>
+        <div id = "kek_change_group" style="color:blue"></div>
+        <div id = "success_change_group" style="color:green"></div>
+     
+      </div>
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('change_group').style.display='none'" class="cancelbtn">Закрыть</button>
+      </div>
+    </form>
+</div>
+
+
+<script>
+</script>
+
+<link rel="stylesheet" href="/v/utilities/admin.css">
+<script src="/v/utilities/admin.js"></script>
+
+</body>
+</html>
+
+</script>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/v/utilities/organizer.css">
+  <script src="/v/utilities/organizer.js"></script>
+  <link rel="stylesheet" href="/v/utilities/bootstrap.min.css">
+  <script src="/v/utilities/bootstrap.min.js"></script>
+
+</head>
+
+<style>
+ @media (min-width: 992px) {
+            .gedf-main {
+                padding-left: 4rem;
+                padding-right: 4rem;
+            }
+            .gedf-card {
+                margin-bottom: 2.77rem;
+            }
+        }
+
+        .dropdown-toggle::after {
+            content: none;
+            display: none;
+        }</style>
+<body>
+
+
+
+  <div id="see_stundets_marks_from" class="modal">
+  
+  <form class="modal-content123 animate" onsubmit="return false">
+
+    <div class="container">
+      <label for="uname"><b>Имя</b></label>
+      <br>
+      <select id = "select_person"></select>
+      <br>
+      <br>
+      
+      <button onclick="load_student_marks()" >Посмотреть оценки</button>
+
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('see_stundets_marks_from').style.display='none'" class="cancelbtn">Закрыть</button>
+    </div>
+  </form>
+</div>
+
+<div id="marks_table_form" class="modal">
+  
+  <form class="modal-content123 animate" onsubmit="return false">
+
+    <div class="container">
+      <table class="container">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>+/-</th>
+            </tr>
+        </thead>
+        <tbody id="marks_table">
+
+           
+        </tbody>
+    </table>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('marks_table_form').style.display='none'" class="cancelbtn">Закрыть</button>
+    </div>
+  </form>
+</div>
+      
+
+
+<div id="focus_teacher_form" class="modal">
+  
+  <form class="modal-content123 animate" onsubmit="return false">
+
+    <div class="container">
+      <label for="uname"><b>Учитель</b></label>
+      <br>
+      <select id = "select_teacher_groups_k"></select>
+      <br>
+      <br>
+      
+      <button onclick="load_groups_of_teacher()" >Посмотреть оценки</button>
+
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('focus_teacher_form').style.display='none'" class="cancelbtn">Закрыть</button>
+    </div>
+  </form>
+</div>
+
+<div id="focus_teacher_groups_form" class="modal">
+  
+  <form class="modal-content123 animate" onsubmit="return false">
+
+    <div class="container">
+      <label for="uname"><b>Учитель</b></label>
+      <br>
+      <select id = "select_group_of_teacher"></select>
+      <br>
+      <br>
+      
+      <button onclick="load_students_in_groups()" >Посмотреть участников</button>
+
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('focus_teacher_groups_form').style.display='none'" class="cancelbtn">Закрыть</button>
+    </div>
+  </form>
+</div>
+
+
+
+<div id="list_groups_table_form" class="modal">
+  
+  <form class="modal-content123 animate" onsubmit="return false">
+
+    <div class="container">
+      <table class="container">
+        <thead>
+            <tr>
+                <th>Имя</th>
+            </tr>
+        </thead>
+        <tbody id="users_in_groups">
+
+           
+        </tbody>
+    </table>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('list_groups_table_form').style.display='none'" class="cancelbtn">Закрыть</button>
+    </div>
+  </form>
+</div>
+
+<div id="list_of_all_tests" class="modal">
+  
+  <form class="modal-content123 animate" id = "scroller" onsubmit="return false">
+
+    <div class="container">
+      <table class="container">
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Имя</th>
+            </tr>
+        </thead>
+        <tbody id="tests_of_all_time">
+
+           
+        </tbody>
+    </table>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('list_of_all_tests').style.display='none'" class="cancelbtn">Закрыть</button>
+    </div>
+  </form>
+</div>
+      
+
+
+<div id="select_test_mark_show" class="modal">
+  
+  <form class="modal-content123 animate" onsubmit="return false">
+
+    <div class="container">
+      <label for="uname"><b>Имя</b></label>
+      <br>
+      <select id = "select_test_to_show"></select>
+      <br>
+      <br>
+      
+      <button onclick="load_new_show_marks_form()" >Посмотреть оценки</button>
+
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('select_test_mark_show').style.display='none'" class="cancelbtn">Закрыть</button>
+    </div>
+  </form>
+</div>
+
+
+<div id="new_marks_table" class="modal">
+  
+  <form class="modal-content123 animate" onsubmit="return false">
+
+    <div class="container">
+      <table class="container">
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Оценка</th>
+            </tr>
+        </thead>
+        <tbody id="super_table">
+
+           
+        </tbody>
+    </table>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('new_marks_table').style.display='none'" class="cancelbtn">Закрыть</button>
+    </div>
+  </form>
+</div>
+
+
+
+<div id="load_all_tasks_form_d" class="modal">
+  
+  <form class="modal-content123 animate" onsubmit="return false">
+
+    <div class="container">
+      <label for="uname"><b>Имя</b></label>
+      <br>
+      <select id = "super_selector"></select>
+      <br>
+      <br>
+      
+      <button onclick="chouse_task()" >Посмотреть оценки</button>
+
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('load_all_tasks_form_d').style.display='none'" class="cancelbtn">Закрыть</button>
+    </div>
+  </form>
+</div>
+
+<div id="loaded_tasks_kekekek" class="modal">
+  
+  <form class="modal-content123 animate" onsubmit="return false">
+
+    <div class="container">
+      <label for="uname"><b id = "ftask_name"></b></label>
+      <br>
+      <div id = "ftask_dicr"></div>
+      <br>
+      <label for="uname"><b id = "ansssdasd"></b></label>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('loaded_tasks_kekekek').style.display='none'" class="cancelbtn">Закрыть</button>
+    </div>
+  </form>
+</div>
+
+
+    <div class="container-fluid gedf-wrapper">
+        <div class="row">
+            <div id = "" class="col-md-3 polss">
+                <div>Панель учителя</div>
+                <button class="side_menu" onclick="document.getElementById('see_stundets_marks_from').style.display='block'; see_student_marks()" >Посмотреть результаты тестирования студента</button>
+                <button class="side_menu" onclick="document.getElementById('focus_teacher_form').style.display='block'; load_teachers_to_form()" >Посмотреть списки групп</button>
+                <button class="side_menu" onclick="document.getElementById('list_of_all_tests').style.display='block'; load_tests_to_show()" >Посмотреть запланированные тестирования</button>
+                <button class="side_menu" onclick="document.getElementById('select_test_mark_show').style.display='block'; load_tests_to_show123()" >Посмотреть оценки за тестирования</button>
+                <button class="side_menu" onclick="document.getElementById('load_all_tasks_form_d').style.display='block'; load_tasks_kkk()" >Посмотреть задания</button>
+            </div>
+        </div>
+    </div>
+<script></script>
+</body>
+</html>

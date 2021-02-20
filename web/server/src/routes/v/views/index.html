@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="polss">
+    <div class="texts">
+        Добро пожаловать в систему автоматического тестирования
+    </div>
+    <div>
+        Чтобы войти в систему введите свой логин и пароль
+    </div>
+    
+    <button id = 'main-btn' onclick="document.getElementById('login_form').style.display='block'" style="width:auto;">Войти</button>
+
+    
+    <div class="small" style="margin-top: 50px;"> 
+        Если у вас нету логина, то обратитесь к системному администратору
+    </div>
+    <div class="small" style="margin-top: 20px;"> 
+        Если у вас выключены cookie, включите их
+    </div>
+
+</div>
+<div class="polss d">
+    <div class="polss">Московская предпрофессиональная олимпиада</div>    
+    <div class="polss"><b>DISQUALIFIED</b></div>     
+</div>
+
+<div id="login_form" class="modal">
+  
+  <form class="modal-content animate" onsubmit="return false">
+
+    <div class="container">
+      <label for="uname"><b>Логин</b></label>
+      <input id = "log_in_username" type="text" placeholder="Логин" name="username" required>
+
+      <label for="psw"><b>Пароль</b></label>
+      <input id = "log_in_password" type="password" placeholder="Пароль" name="password" required>        
+      
+      <button onclick="log_in()" >Войти</button>
+      <div id = "fail_log_in" style="color:red"></div>
+      <div id = "success_log_in" style="color:green"></div>
+   
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('login_form').style.display='none'" class="cancelbtn">Отмена</button>
+    </div>
+  </form>
+</div>
+
+<script>
+var modal1 = document.getElementById('login_form');
+
+
+</script>
+
+<link rel="stylesheet" href="/v/utilities/welcome.css">
+<script src="/v/utilities/welcome.js"></script>
+
+</body>
+</html>
+
+</script>

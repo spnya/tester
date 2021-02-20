@@ -13,7 +13,7 @@ connectTimeoutMS: 10000,
 auto_reconnect: true
 }
 
-stringUrl = `mongodb://${MONGO_USER}:${MONGO_PASS}@mongo:27017/letoctf?authSource=admin`
+stringUrl = `mongodb://${MONGO_USER}:${MONGO_PASS}@mongo:27017/tester?authSource=admin`
 module.exports = function () {
   opts = options
   uri = stringUrl

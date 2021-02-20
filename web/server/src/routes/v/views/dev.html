@@ -1,0 +1,52 @@
+<h1>dev page</h1>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<button onclick="document.getElementById('login_form').style.display='block'" style="width:auto;">Login</button>
+
+<div id="login_form" class="modal">
+  
+  <form class="modal-content animate" onsubmit="return false">
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input id = "log_in_username" type="text" placeholder="Enter Username" name="username" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input id = "log_in_password" type="password" placeholder="Enter Password" name="password" required>        
+      
+      <button onclick="log_in()" >Login</button>
+      <div id = "fail_log_in" style="color:red"></div>
+      <div id = "success_log_in" style="color:green"></div>
+   
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('login_form').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+  </form>
+</div>
+
+<script>
+var modal1 = document.getElementById('login_form');
+
+window.onclick = function(event) {
+    if (event.target == modal1) {
+        modal1.style.display = "none";
+    }
+}
+
+
+</script>
+<link rel="stylesheet" href="/v/utilities/dev.css">
+<script src="/v/utilities/dev.js"></script>
+<script src="/v/utilities/utils.js"></script>
+
+</body>
+</html>
+
+</script>
